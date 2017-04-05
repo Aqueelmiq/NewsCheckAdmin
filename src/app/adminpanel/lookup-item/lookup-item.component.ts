@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LookupItemComponent implements OnInit {
 
+  name: string;
+  url: string;
+
   constructor() { }
 
   ngOnInit() {

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddItemComponent implements OnInit {
 
+  name: string;
+  rating: number;
+  url: string;
+  bias: string;
+
   constructor() { }
 
   ngOnInit() {
