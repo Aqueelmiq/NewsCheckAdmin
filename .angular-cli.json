@@ -19,9 +19,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "./assets/css/bootstrap.css",
+        "./assets/css/bootstrap-grid.css",
+        "./assets/css/bootstrap-reboot.css",
+        "./assets/css/styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "./assets/js/jquery.js",
+        "./assets/js/bootstrap.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

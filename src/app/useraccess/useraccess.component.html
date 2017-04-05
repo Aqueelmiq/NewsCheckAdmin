@@ -1,0 +1,14 @@
+<div class="col-md-6 bg-faded rounded push-md-3 p-4">
+  <form>
+    <div class="form-group">
+      <label for="email">E-Mail</label>
+      <input type="email" name="email" class="form-control" id="email" placeholder="hello@example.com" [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+      <label for="pass">Password</label>
+      <input type="password" name="pass" class="form-control" id="pass" placeholder="Your secret Password" [(ngModel)]="pass">
+    </div>
+    <button class="btn btn-info" (click)="login()"> Login </button>
+    <p> Forgot your password? Reset Now</p>
+  </form>
+</div>
