@@ -1,6 +1,6 @@
 <div class="rounded bg-faded p-4">
-  <div class="text-center" *ngIf="!show; else result">
-    <p class="lead"> LOLS </p>
+  <div class="text-center" *ngIf="show; else result">
+    <app-result></app-result>
   </div>
   <ng-template #result>No Result Selected</ng-template>
 </div>

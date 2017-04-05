@@ -1,3 +1,43 @@
-<p>
-  result works!
-</p>
+<div class="text-left">
+  <div class="row mt-2">
+    <h3 class="display-6 col-sm-10 text-left"> BBC UK </h3>
+    <button class="btn btn-info col-sm-2" (click)="edit = !edit"> Edit </button>
+  </div>
+  <div class="row mt-4">
+    <p class="col-sm-1"> Name: </p>
+    <div class="col name">
+      <input *ngIf="edit; else name" type="text" class="form-control" placeholder="BBC UK News">
+      <ng-template #name> <p> BBC UK News </p> </ng-template>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <p class="col-sm-1"> Link: </p>
+    <div class="col name">
+      <input *ngIf="edit; else link" type="text" class="form-control" placeholder="www.bbc.co.uk">
+      <ng-template #link> <p> www.bbc.co.uk </p> </ng-template>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-sm-6">
+      <div class="row">
+        <p class="col-sm-2"> Rating: </p>
+        <div class="col-sm-10 name">
+          <input *ngIf="edit; else rating" type="text" class="form-control" placeholder="9.1">
+          <ng-template #rating> <p> 9.1 </p> </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <p class="col-sm-2"> Bias: </p>
+        <div class="col-sm-10 name">
+          <input *ngIf="edit; else bias" type="text" class="form-control" placeholder="Left">
+          <ng-template #bias> <p> Left </p> </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultareaComponent implements OnInit {
 
-  show: boolean = false;
+  show: boolean = true;
   constructor() { }
 
   ngOnInit() {
