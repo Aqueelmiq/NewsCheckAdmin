@@ -1,6 +1,9 @@
 {
   "name": "fake-news-admin",
   "version": "0.0.0",
+  "engines": {
+    "node": "6.9.4"
+  },
   "license": "MIT",
   "scripts": {
     "ng": "ng",
