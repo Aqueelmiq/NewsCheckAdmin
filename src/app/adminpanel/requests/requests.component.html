@@ -15,12 +15,12 @@
           Actions
         </div>
       </li>
-      <li class="list-group-item">
+      <li class="list-group-item" *ngFor="let item of issues | async">
         <div class="col-sm-5">
-          BBC Pvt LTD
+          {{item.name}}
         </div>
         <div class="col-sm-5">
-          Our ratings are very low..
+          {{item.reason}}
         </div>
         <div class="col-sm-2">
           <button class="btn btn-info"> Resolve </button>

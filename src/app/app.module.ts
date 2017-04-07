@@ -18,6 +18,8 @@ import { ResultareaComponent } from './adminpanel/resultarea/resultarea.componen
 import { ResultlistComponent } from './adminpanel/resultarea/resultlist/resultlist.component';
 import { ResultComponent } from './adminpanel/resultarea/result/result.component';
 import { RequestsComponent } from './adminpanel/requests/requests.component';
+import { CustomerrequestComponent } from './customerrequest/customerrequest.component';
+import { RequestformComponent } from './customerrequest/requestform/requestform.component';
 
 const config = {
   apiKey: "AIzaSyDTQms40io3Fu4JboZrtrQXCL0WiV5Ds2I",
@@ -36,6 +38,7 @@ const authConfig = {
 const appRoutes: Routes = [
   { path: 'admin', component: AdminpanelComponent },
   { path: 'user',  component: LoginpageComponent },
+  { path: 'tickets',  component: CustomerrequestComponent },
   { path: '',
     redirectTo: '/admin',
     pathMatch: 'full'
@@ -56,7 +59,9 @@ const appRoutes: Routes = [
     ResultareaComponent,
     ResultlistComponent,
     ResultComponent,
-    RequestsComponent
+    RequestsComponent,
+    CustomerrequestComponent,
+    RequestformComponent
   ],
   imports: [
     BrowserModule,

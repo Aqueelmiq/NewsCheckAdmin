@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFire, FirebaseListObservable} from "angularfire2";
 
 @Component({
   selector: 'app-requests',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsComponent implements OnInit {
 
-  constructor() { }
+  issues: FirebaseListObservable<any>;
+  constructor(public af: AngularFire) {
+    this.issues = af.database.list('/issues');
+  }
 
   ngOnInit() {
   }
