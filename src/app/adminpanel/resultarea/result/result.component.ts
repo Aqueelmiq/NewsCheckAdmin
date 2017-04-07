@@ -13,4 +13,12 @@ export class ResultComponent implements OnInit {
   ngOnInit() {
   }
 
+  editDetail() {
+    if(this.edit) {
+      //POST REQUEST TO SERVER
+    }
+    this.edit = !this.edit;
+
+  }
+
 }

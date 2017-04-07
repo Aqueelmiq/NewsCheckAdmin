@@ -1,16 +1,19 @@
 <form class="bg-faded p-4 rounded">
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">URL: </label>
-    <input type="url" name="source" class="col-sm-10 form-control" placeholder="http://www.bbc.com" [(ngModel)]="url">
+    <input (keyup)="suggest()" type="url" name="source" class="col-sm-10 form-control" placeholder="http://www.bbc.com" [(ngModel)]="url">
   </div>
   <div class="row justify-content-center">
-    <p> OR </p>
-  </div>
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Name: </label>
-    <input type="text" name="name" class="col-sm-10 form-control" placeholder="BBC Global" [(ngModel)]="name">
+    <ul class="col-md-12 list-group">
+      <li *ngFor="let suggestion of suggestions"
+          class="list-group-item"
+          (click)="pick(suggestion)"
+          (mouseover)="hover($event)"
+          (mouseleave)="blur($event)">
+        {{suggestion.url}} </li>
+    </ul>
   </div>
   <div class="form-group row mt-4">
-    <button class="col-sm-6 push-sm-3 form-control btn btn-info"> Search </button>
+    <button (click)="search()" class="col-sm-6 push-sm-3 form-control btn btn-info"> Search </button>
   </div>
 </form>

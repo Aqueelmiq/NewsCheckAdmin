@@ -17,6 +17,7 @@ import { NavComponent } from './adminpanel/nav/nav.component';
 import { ResultareaComponent } from './adminpanel/resultarea/resultarea.component';
 import { ResultlistComponent } from './adminpanel/resultarea/resultlist/resultlist.component';
 import { ResultComponent } from './adminpanel/resultarea/result/result.component';
+import { RequestsComponent } from './adminpanel/requests/requests.component';
 
 const config = {
   apiKey: "AIzaSyDTQms40io3Fu4JboZrtrQXCL0WiV5Ds2I",
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     NavComponent,
     ResultareaComponent,
     ResultlistComponent,
-    ResultComponent
+    ResultComponent,
+    RequestsComponent
   ],
   imports: [
     BrowserModule,
