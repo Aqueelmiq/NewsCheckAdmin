@@ -6,6 +6,7 @@ export class Source {
   reason3: string;
   notes: string;
   confidence: boolean;
+  rating: number;
 
   constructor(url:string, reason: string, confidence:boolean) {
     this.url = url;
