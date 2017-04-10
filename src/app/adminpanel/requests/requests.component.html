@@ -16,14 +16,17 @@
         </div>
       </li>
       <li class="list-group-item" *ngFor="let item of issues | async">
-        <div class="col-sm-5">
+        <div class="col-sm-3">
           {{item.name}}
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-3">
+          {{item.url}}
+        </div>
+        <div class="col-sm-4">
           {{item.reason}}
         </div>
         <div class="col-sm-2">
-          <button class="btn btn-info"> Resolve </button>
+          <button class="btn btn-info" (click)="resolve(item)"> Resolved </button>
         </div>
       </li>
 

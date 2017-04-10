@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ToasterService} from 'angular2-toaster';
 import {Source} from "../Source";
 import {DataService} from "../../dataservice/data.service";
 import {AngularFire} from "angularfire2";
@@ -16,7 +17,7 @@ export class AddItemComponent implements OnInit {
   reason: string;
   notes: string;
 
-  constructor(public ds: DataService, public af: AngularFire) {
+  constructor(public ds: DataService, public af: AngularFire, public toasterService: ToasterService) {
     /*this.af.database.object('/sourcesbackup').subscribe(sources => {
       this.af.database.object('/sources').set(sources);
     })*/
@@ -29,6 +30,7 @@ export class AddItemComponent implements OnInit {
     item.notes = this.notes;
     item.rating = this.rating;
     this.ds.newResult(item);
+    this.toasterService.pop('success', 'Success!', 'Added a new source.')
   }
 
 }

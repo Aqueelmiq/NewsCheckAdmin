@@ -13,7 +13,10 @@ export class RequestsComponent implements OnInit {
     this.issues = af.database.list('/issues');
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  resolve(item) {
+    this.issues.remove(item.$key);
   }
 
 }
