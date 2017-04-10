@@ -20,6 +20,7 @@ import { ResultComponent } from './adminpanel/resultarea/result/result.component
 import { RequestsComponent } from './adminpanel/requests/requests.component';
 import { CustomerrequestComponent } from './customerrequest/customerrequest.component';
 import { RequestformComponent } from './customerrequest/requestform/requestform.component';
+import {DataService} from "./dataservice/data.service";
 
 const config = {
   apiKey: "AIzaSyDTQms40io3Fu4JboZrtrQXCL0WiV5Ds2I",
@@ -70,7 +71,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(config, authConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

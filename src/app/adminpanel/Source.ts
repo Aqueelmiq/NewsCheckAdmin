@@ -1,5 +1,6 @@
 export class Source {
 
+  id: number;
   url: string;
   reason: string;
   reason2: string;

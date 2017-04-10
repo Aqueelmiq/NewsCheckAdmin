@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFire, FirebaseListObservable} from "angularfire2";
-import {Http} from "@angular/http";
+import {Component, OnInit} from '@angular/core';
 import {Source} from "../Source";
+import {DataService} from "../../dataservice/data.service";
 
 @Component({
   selector: 'app-lookup-item',
@@ -10,23 +9,23 @@ import {Source} from "../Source";
 })
 export class LookupItemComponent implements OnInit {
 
+  result: Source;
   name: string;
   url: string;
-  result: Source;
   suggestions = [];
   sources = [];
 
-  constructor(public af: AngularFire, public http: Http) {
-    af.database.list('/sources').subscribe((list) => {
+  constructor(public ds: DataService) {
+    ds.sources.subscribe((list) => {
       this.sources = list;
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   pick(suggestion) {
     this.result = suggestion;
+    this.ds.setCurrentResult(suggestion);
     this.suggestions = [];
   }
 
@@ -40,7 +39,6 @@ export class LookupItemComponent implements OnInit {
 
   suggest() {
     this.suggestions = this.sources.filter((source)=> {
-      console.log(this.url);
       return source["url"].indexOf(this.url) > -1;
     }).slice(0, 5);
   }

@@ -1,42 +1,39 @@
 <div class="text-left">
   <div class="row mt-2">
-    <h3 class="display-6 col-sm-10 text-left"> BBC UK </h3>
+    <h3 class="display-6 col-sm-10 text-left"> Modify Current Selection: </h3>
     <button class="btn btn-info col-sm-2" (click)="editDetail()"> {{ edit ? "Save" : "Edit"}} </button>
   </div>
   <div class="row mt-4">
-    <p class="col-sm-1"> Name: </p>
-    <div class="col name">
-      <input *ngIf="edit; else name" type="text" class="form-control" placeholder="BBC UK News">
-      <ng-template #name> <p> BBC UK News </p> </ng-template>
+    <p class="col-sm-1"> Url: </p>
+    <div class="col url">
+      <input *ngIf="edit; else url" type="text" class="form-control" [(ngModel)]="source.url">
+      <ng-template #url> <p> {{source.url}} </p> </ng-template>
     </div>
   </div>
 
   <div class="row mt-2">
-    <p class="col-sm-1"> Link: </p>
-    <div class="col name">
-      <input *ngIf="edit; else link" type="text" class="form-control" placeholder="www.bbc.co.uk">
-      <ng-template #link> <p> www.bbc.co.uk </p> </ng-template>
+    <p class="col-sm-1"> Rating: </p>
+    <div class="col rating">
+      <input *ngIf="edit; else rating" type="number" class="form-control" [(ngModel)]="source.rating">
+      <ng-template #rating> <p> {{source.rating}} </p> </ng-template>
+    </div>
+    <p class="col-sm-1"> Verified: </p>
+    <div class="col verified">
+      <input *ngIf="edit; else verified" type="checkbox" class="form-control" [(ngModel)]="source.confidence">
+      <ng-template #verified> <p> {{source.confidence}} </p> </ng-template>
     </div>
   </div>
 
   <div class="row mt-2">
-    <div class="col-sm-6">
-      <div class="row">
-        <p class="col-sm-2"> Rating: </p>
-        <div class="col-sm-10 name">
-          <input *ngIf="edit; else rating" type="text" class="form-control" placeholder="9.1">
-          <ng-template #rating> <p> 9.1 </p> </ng-template>
-        </div>
-      </div>
+    <p class="col-sm-1"> Reason: </p>
+    <div class="col reason">
+      <input *ngIf="edit; else reason" type="text" class="form-control" [(ngModel)]="source.reason">
+      <ng-template #reason> <p> {{source.reason}} </p> </ng-template>
     </div>
-    <div class="col-sm-6">
-      <div class="row">
-        <p class="col-sm-2"> Bias: </p>
-        <div class="col-sm-10 name">
-          <input *ngIf="edit; else bias" type="text" class="form-control" placeholder="Left">
-          <ng-template #bias> <p> Left </p> </ng-template>
-        </div>
-      </div>
+    <p class="col-sm-1"> Explanation: </p>
+    <div class="col explanation">
+      <input *ngIf="edit; else explain" type="text" class="form-control" [(ngModel)]="source.notes">
+      <ng-template #explain> <p> {{source.notes}} </p> </ng-template>
     </div>
   </div>
 

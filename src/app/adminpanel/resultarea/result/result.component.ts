@@ -1,24 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Source} from "../../Source";
+import {Subscription} from "rxjs";
+import {DataService} from "../../../dataservice/data.service";
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnDestroy {
 
-  edit: boolean = true;
-  constructor() { }
+  resultsub: Subscription;
+  source: Source;
+  edit: boolean = false;
+  constructor(public ds: DataService) {
+    this.resultsub = ds.getCurrentResult().subscribe((source)=> {
+      this.source = source;
+    });
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngOnDestroy() {
+    this.resultsub.unsubscribe();
   }
 
   editDetail() {
     if(this.edit) {
-      //POST REQUEST TO SERVER
+      this.ds.updateResult(this.source);
     }
     this.edit = !this.edit;
-
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {Source} from "../Source";
+import {DataService} from "../../dataservice/data.service";
+import {AngularFire} from "angularfire2";
 
 @Component({
   selector: 'app-add-item',
@@ -15,20 +16,19 @@ export class AddItemComponent implements OnInit {
   reason: string;
   notes: string;
 
-  sources: FirebaseListObservable<any>;
-
-  constructor(public af:AngularFire) {
-    this.sources = af.database.list('/sources');
+  constructor(public ds: DataService, public af: AngularFire) {
+    /*this.af.database.object('/sourcesbackup').subscribe(sources => {
+      this.af.database.object('/sources').set(sources);
+    })*/
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
     var item = new Source(this.url, this.reason, this.confidence);
     item.notes = this.notes;
     item.rating = this.rating;
-    this.sources.push(item);
+    this.ds.newResult(item);
   }
 
 }
