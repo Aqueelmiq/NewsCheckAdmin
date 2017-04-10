@@ -1,7 +1,10 @@
 <div class="text-left">
   <div class="row mt-2">
     <h3 class="display-6 col-sm-10 text-left"> Modify Current Selection: </h3>
-    <button class="btn btn-info col-sm-2" (click)="editDetail()"> {{ edit ? "Save" : "Edit"}} </button>
+    <div class="col-sm-2">
+      <button class="col-sm-5 btn btn-info mx-1" (click)="hide()"> Hide </button>
+      <button class="col-sm-5 btn btn-info" (click)="editDetail()"> {{ edit ? "Save" : "Edit"}} </button>
+    </div>
   </div>
   <div class="row mt-4">
     <p class="col-sm-1"> Url: </p>

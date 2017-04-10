@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../../dataservice/data.service";
 
 @Component({
   selector: 'app-resultarea',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultareaComponent implements OnInit {
 
-  show: boolean = true;
-  constructor() { }
-
-  ngOnInit() {
+  show: boolean = false;
+  constructor(public ds: DataService) {
+    this.ds.show.subscribe(s => {
+      this.show = s;
+    })
   }
+
+  ngOnInit() {}
 
 }

@@ -34,4 +34,8 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.edit = !this.edit;
   }
 
+  hide() {
+    this.ds.hideResult();
+  }
+
 }

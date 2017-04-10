@@ -7,15 +7,21 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from "ang
 export class DataService {
 
   private _result = new BehaviorSubject<Source>(new Source("No Result", "No Result", false));
+  private _show = new BehaviorSubject<boolean>(false);
+
+  public show: Observable<boolean> = this._show.asObservable();
   public result:Observable<Source> = this._result.asObservable();
+
   public sources: FirebaseListObservable<any>;
   public last_id: FirebaseObjectObservable<any>
+
   constructor(public af: AngularFire) {
     this.sources = af.database.list('/sources');
     this.last_id = af.database.object('/id');
   }
 
   setCurrentResult(result: Source) {
+    this._show.next(true);
     this._result.next(result);
   }
 
@@ -32,8 +38,8 @@ export class DataService {
         this.last_id.set({id: result.id});
       });
     })
-
   }
+
 
   updateResult(result: Source) {
     this._result.next(result);
@@ -44,5 +50,9 @@ export class DataService {
       });
     });
 
+  }
+
+  hideResult() {
+    this._show.next(false);
   }
 }

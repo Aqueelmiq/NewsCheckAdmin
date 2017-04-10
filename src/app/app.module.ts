@@ -15,7 +15,6 @@ import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { NavComponent } from './adminpanel/nav/nav.component';
 import { ResultareaComponent } from './adminpanel/resultarea/resultarea.component';
-import { ResultlistComponent } from './adminpanel/resultarea/resultlist/resultlist.component';
 import { ResultComponent } from './adminpanel/resultarea/result/result.component';
 import { RequestsComponent } from './adminpanel/requests/requests.component';
 import { CustomerrequestComponent } from './customerrequest/customerrequest.component';
@@ -59,7 +58,6 @@ const appRoutes: Routes = [
     LoginpageComponent,
     NavComponent,
     ResultareaComponent,
-    ResultlistComponent,
     ResultComponent,
     RequestsComponent,
     CustomerrequestComponent,
