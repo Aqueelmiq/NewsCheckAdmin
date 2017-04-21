@@ -1,0 +1,20 @@
+<div class="col-md-6 bg-faded rounded push-md-3 p-4">
+  <form>
+    <div class="form-group text-center">
+      <label for="link">Enter Article Link</label>
+      <input type="url" name="link" class="form-control text-center" id="link" placeholder="bbc.com/news/election-result.html" [(ngModel)]="url">
+    </div>
+    <button class="btn btn-info col-md-6 push-md-3 justify-content-center" (click)="search()"> Check </button>
+  </form>
+</div>
+
+<div class="col-md-6 bg-faded rounded push-md-3 p-4">
+  <div class="progress">
+    <div class="progress-bar + {{classP}}" role="progressbar" [style.width]="score + '%'" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <h5 class="display-6 my-2"> Score: {{score}}</h5>
+  <h5 class="display-6"> Analysis: {{suggest}}</h5>
+  <button class="btn btn-info my-3" (click)="agreed()"> Agree </button>
+  <p> {{success}}</p>
+</div>
+
