@@ -3,6 +3,7 @@ import {ToasterService} from 'angular2-toaster';
 import {Source} from "../Source";
 import {DataService} from "../../dataservice/data.service";
 import {AngularFire} from "angularfire2";
+import {newsx} from '../data';
 
 @Component({
   selector: 'app-add-item',
@@ -18,9 +19,22 @@ export class AddItemComponent implements OnInit {
   notes: string;
 
   constructor(public ds: DataService, public af: AngularFire, public toasterService: ToasterService) {
-    /*this.af.database.object('/sourcesbackup').subscribe(sources => {
-      this.af.database.object('/sources').set(sources);
-    })*/
+    /*var sources = []
+    for (var key in newsx) {
+      console.log('Hi');
+      let source = new Source(key, newsx[key]['type'], newsx[key]['Investigated?']);
+      source.reason2 = newsx[key]['2nd type'];
+      source.reason3 = newsx[key]['2nd type'];
+      source.notes = newsx[key]['Source Notes (things to know?)'];
+      if(source.confidence) {
+        source.rating = 2*Math.random();
+      }
+      else {
+        source.rating = 1 + 3 * Math.random();
+      }
+      sources.push(source);
+    }
+    this.af.database.object('/sources').set(sources);*/
   }
 
   ngOnInit() {}
